@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        billAmountTextField.placeholder = "Bill Amount"
+        tipPercentageTextField.placeholder = "Tip Percentage"
     }
 
     @IBOutlet var tipAmountLabel: UILabel!
@@ -22,14 +24,19 @@ class ViewController: UIViewController {
     @IBAction func calculateTipTapped(_ sender: UIButton) {
         guard billAmountTextField.hasText else { return }
         let text: String = billAmountTextField.text!
-        if let num = Int(text) {
-            let amount = Double(num) * ( 1.0 + tipRate / 100.0 )
+        if let inputAmount = Int(text) {
+            
+            let percentage = Double(tipPercentageTextField.text ?? "0")!
+            
+            let amount = Double(inputAmount) * ( 1.0 + percentage / 100.0 )
             tipAmountLabel.text = String(Int(amount))
+            
         }
     }
     
     
-   
+    @IBOutlet var tipPercentageTextField: UITextField!
+    
     
 }
 

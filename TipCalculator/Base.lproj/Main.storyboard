@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="nRG-qS-QLm">
-                                <rect key="frame" x="30" y="363" width="354" height="170.5"/>
+                                <rect key="frame" x="30" y="324.5" width="354" height="247.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nud-qh-Mlp">
                                         <rect key="frame" x="156.5" y="0.0" width="41.5" height="20.5"/>
@@ -30,8 +30,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N8C-FJ-UNm">
+                                        <rect key="frame" x="0.0" y="140.5" width="354" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ci0-l7-h0b">
-                                        <rect key="frame" x="132" y="140.5" width="90" height="30"/>
+                                        <rect key="frame" x="132" y="217.5" width="90" height="30"/>
                                         <state key="normal" title="Calculate Tip"/>
                                         <connections>
                                             <action selector="calculateTipTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="g2a-i2-pUy"/>
@@ -39,7 +44,9 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="N8C-FJ-UNm" secondAttribute="trailing" id="2uP-Hp-1qY"/>
                                     <constraint firstItem="94L-XS-6ov" firstAttribute="leading" secondItem="nRG-qS-QLm" secondAttribute="leading" id="B47-UL-Zhz"/>
+                                    <constraint firstItem="N8C-FJ-UNm" firstAttribute="leading" secondItem="nRG-qS-QLm" secondAttribute="leading" id="Bu3-9F-W6Q"/>
                                     <constraint firstAttribute="trailing" secondItem="94L-XS-6ov" secondAttribute="trailing" id="SbO-D2-9km"/>
                                 </constraints>
                             </stackView>
@@ -56,6 +63,7 @@
                     <connections>
                         <outlet property="billAmountTextField" destination="94L-XS-6ov" id="YlJ-4K-rZj"/>
                         <outlet property="tipAmountLabel" destination="Nud-qh-Mlp" id="Lc0-ak-LbS"/>
+                        <outlet property="tipPercentageTextField" destination="N8C-FJ-UNm" id="D5R-oa-1L5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
