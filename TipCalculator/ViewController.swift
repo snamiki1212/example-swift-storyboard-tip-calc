@@ -13,6 +13,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         billAmountTextField.placeholder = "Bill Amount"
         tipPercentageTextField.placeholder = "Tip Percentage"
+        
+        registerForKeyboardNotifications()
     }
 
     @IBOutlet var tipAmountLabel: UILabel!
@@ -37,6 +39,18 @@ class ViewController: UIViewController {
     
     @IBOutlet var tipPercentageTextField: UITextField!
     
+    func registerForKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
+    @objc func keyboardWasShown(_ notification: Notification){
+        print(#function)
+    }
+    
+    @objc func keyboardWillBeHidden(_ notification: Notification){
+        print(#function)
+    }
 }
 
