@@ -8,23 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController{
-
+    @IBOutlet var tipAmountLabel: UILabel!
+    @IBOutlet var billAmountTextField: UITextField!
+    @IBOutlet var subview: UIScrollView!
+    @IBOutlet var adjustTipPercentage: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         billAmountTextField.placeholder = "Bill Amount"
         registerForKeyboardNotifications()
+        updateUI()
     }
 
-
-    @IBOutlet var tipAmountLabel: UILabel!
-    
-    @IBOutlet var billAmountTextField: UITextField!
-    
-    let tipRate: Double = 15
-    
-    @IBOutlet var subview: UIScrollView!
-    
-    @IBAction func calculateTipTapped(_ sender: UIButton) {
+    func updateUI(){
         guard billAmountTextField.hasText else { return }
         let text: String = billAmountTextField.text!
         if let inputAmount = Int(text) {
@@ -36,7 +32,14 @@ class ViewController: UIViewController{
             
         }
     }
+
+    @IBAction func updateInput(_ sender: UITextField) {
+        updateUI()
+    }
     
+    @IBAction func updateSlider(_ sender: UISlider) {
+        updateUI()
+    }
     
     func registerForKeyboardNotifications(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(_:)), name: UIResponder.keyboardDidShowNotification, object: nil)
@@ -69,6 +72,6 @@ class ViewController: UIViewController{
         print(#function)
     }
     
-    @IBOutlet var adjustTipPercentage: UISlider!
+    
 }
 
